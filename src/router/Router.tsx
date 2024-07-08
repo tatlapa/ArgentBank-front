@@ -3,7 +3,6 @@ import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
 import User from "../pages/User";
 
-
 const router = createBrowserRouter([
     {
       path: "/",

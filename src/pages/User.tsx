@@ -5,7 +5,7 @@ import PriceItem from "../components/PriceItem";
 const User = () => {
   return (
     <>
-      <Header userName="Tony"/>
+      <Header userName="Tony" />
       <main className="bg-[#12002b] flex flex-col items-center justify-center">
         <h1 className="text-white text-3xl font-bold text-center my-5">
           Welcome back
