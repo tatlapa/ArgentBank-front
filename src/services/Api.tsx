@@ -12,9 +12,6 @@ interface userProfile {
 
 type Token = string;
 
-// export const login = async (email: password:) => {
-
-// }
 
 export async function login({ email, password }: loginParams): Promise<Token> {
   try {
@@ -28,9 +25,9 @@ export async function login({ email, password }: loginParams): Promise<Token> {
 
     if (!response.ok) {
       if (response.status === 400) {
-        throw new Error("Connexion refusée");
+        throw new Error("Invalid credentials")
       } else {
-        throw new Error("Erreur de connexion");
+        throw new Error("Network response was not ok")
       }
     }
 
@@ -41,10 +38,10 @@ export async function login({ email, password }: loginParams): Promise<Token> {
       error instanceof TypeError &&
       error.message.includes("net::ERR_CONNECTION_REFUSED")
     ) {
-      throw new Error("Cannot connect to server");
+      throw new Error("Cannot connect to server")
     } else {
-      console.error("There was a problem with the fetch operation:", error);
-      throw error;
+      console.error("There was a problem with the fetch operation:", error)
+      throw error
     }
   }
 }
@@ -77,6 +74,43 @@ export async function getUserProfile(token: Token): Promise<userProfile> {
     } else {
       console.error("There was a problem with the fetch operation:", error);
       throw error;
+    }
+  }
+}
+
+export async function updateUserProfile({
+  token,
+  firstName,
+  lastName,
+}): Promise<any> {
+  try {
+    const response = await fetch(`${baseUrl}/user/profile`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ firstName, lastName }),
+    })
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok")
+    }
+
+    const data = await response.json()
+    if (!data || !data.body) {
+      throw new Error("Invalid data structure")
+    }
+    return data.body
+  } catch (error) {
+    if (
+      error instanceof TypeError &&
+      error.message.includes("net::ERR_CONNECTION_REFUSED")
+    ) {
+      throw new Error("Cannot connect to server")
+    } else {
+      console.error("There was a problem with the fetch operation:", error)
+      throw error
     }
   }
 }

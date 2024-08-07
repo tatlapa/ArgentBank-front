@@ -5,7 +5,7 @@ import SignInForm from "../components/SignInForm";
 const SignIn = () => {
   return (
     <>
-      <Header userName="Tony" />
+      <Header />
       <main className="bg-[#12002b] flex items-center justify-center py-10 h-[83vh]">
         <SignInForm />
       </main>

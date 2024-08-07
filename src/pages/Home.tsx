@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <>
-      <Header userName="Tony"/>
+      <Header />
       <Hero />
       <main className="p-10 flex flex-col md:flex-row gap-20">
         <FeatureItem
