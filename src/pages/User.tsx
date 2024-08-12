@@ -10,8 +10,8 @@ import { updateUserProfile } from "../services/api";
 const User = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const [firstName, setFirstName] = useState(user.firstName || "");
-  const [lastName, setLastName] = useState(user.lastName || "");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   const updateProfileMutation = useMutation(updateUserProfile, {
@@ -41,7 +41,7 @@ const User = () => {
         <h1 className="text-white text-3xl font-bold text-center my-5">
           Welcome back
           <br />
-          {user.firstName} {user.lastName}
+          {user?.firstName} {user?.lastName}
         </h1>
         {!showModal && (
           <button
@@ -54,21 +54,24 @@ const User = () => {
         {showModal && (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <div className="flex gap-3">
-                <input
-                  type="text"
-                  placeholder={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  className="p-2 rounded"
-                />
-                <input
-                  type="text"
-                  placeholder={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  className="p-2 rounded"
-                />
+              <input
+                type="text"
+                placeholder={user?.firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="p-2 rounded"
+              />
+              <input
+                type="text"
+                placeholder={user?.lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                className="p-2 rounded"
+              />
             </div>
-            <div className="flex gap-3 justify-center">
-              <button type="submit" className="rounded bg-[#00bc77] py-1.5 w-24 text-lg font-bold">
+            <div className="flex gap-3 justify-center text-white">
+              <button
+                type="submit"
+                className="rounded bg-[#00bc77] py-1.5 w-24 text-lg font-bold"
+              >
                 Save
               </button>
               <button
