@@ -21,6 +21,7 @@ export const userSlice = createSlice({
         ...state.user,
         ...action.payload,
       };
+      localStorage.setItem("user", JSON.stringify(state.user));
     },
   },
 });
