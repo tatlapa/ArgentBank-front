@@ -35,7 +35,7 @@ const User = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="bg-[#12002b] flex flex-col items-center justify-center">
         <h1 className="text-white text-3xl font-bold text-center my-5">
@@ -104,7 +104,7 @@ const User = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

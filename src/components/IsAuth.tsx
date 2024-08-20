@@ -3,12 +3,12 @@ import { selectUser } from "../features/userSlice";
 import { Navigate } from "react-router-dom";
 
 interface IsAuthProps {
-  Child: React.FC;
+  Page: React.FC;
   requireAuth: boolean;
 }
 
 const IsAuth: React.FC<IsAuthProps> = (props) => {
-  const { Child, requireAuth } = props;
+  const { Page, requireAuth } = props;
   const user = useSelector(selectUser);
   const token = localStorage.getItem("token");
 
@@ -20,7 +20,7 @@ const IsAuth: React.FC<IsAuthProps> = (props) => {
     return <Navigate to="/user" />;
   }
 
-  return <Child />;
+  return <Page />;
 };
 
 export default IsAuth;

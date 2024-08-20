@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <Hero />
       <main className="p-10 flex flex-col md:flex-row gap-20">
@@ -34,7 +34,7 @@ const Home = () => {
         />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

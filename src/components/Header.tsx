@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between py-1 px-5">
+    <header className="flex justify-between py-1.5 px-5">
       <Link to="/">
         <img
           className="w-[200px]"

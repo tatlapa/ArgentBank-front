@@ -15,11 +15,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign-in",
-    element: <IsAuth Child={SignIn} requireAuth={false} />,
+    element: <IsAuth Page={SignIn} requireAuth={false} />,
   },
   {
     path: "/user",
-    element: <IsAuth Child={User} requireAuth={true} />,
+    element: <IsAuth Page={User} requireAuth={true} />,
   },
 ]);
 
