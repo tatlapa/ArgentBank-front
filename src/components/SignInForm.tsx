@@ -40,48 +40,49 @@ const SignInForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white flex flex-col p-10 items-center">
-      <UserCircleIcon className="w-5 h-5" />
+    <div className="bg-white flex flex-col p-10 md:p-20 items-center">
+      <UserCircleIcon className="w-10 h-10" />
       <h1 className="my-5 text-2xl font-bold">Sign In</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col">
           <label htmlFor="email" className="font-bold">
-            Email
+            <p className="md:text-xl">Email</p>
           </label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border-2"
+            className="border-2 md:p-3 md:text-xl"
             required
           />
         </div>
         <div className="flex flex-col">
           <label htmlFor="password" className="font-bold">
-            Password
+          <p className="md:text-xl">Password</p>
           </label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border-2"
+            className="border-2 md:p-3 md:text-xl"
             required
           />
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
           <input
             type="checkbox"
             id="remember-me"
             checked={rememberMe}
             onChange={() => setRememberMe(!rememberMe)}
+            className="flex md:h-4 md:w-4"
           />
-          <label htmlFor="remember-me">Remember me</label>
+          <label htmlFor="remember-me" className="md:text-lg">Remember me</label>
         </div>
         <button
           type="submit"
-          className="bg-[#00bc77] flex items-center justify-center text-white py-2"
+          className="bg-[#00bc77] flex items-center justify-center text-white py-2 md:text-lg"
         >
           Sign In
         </button>

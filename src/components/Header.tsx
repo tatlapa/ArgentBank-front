@@ -30,24 +30,24 @@ const Header = () => {
             to="/user"
             className="flex gap-1 items-center mr-2 font-bold text-black hover:underline"
           >
-            <UserCircleIcon className="w-4 h-4" />
+            <UserCircleIcon className="w-4 h-4 md:w-8 md:h-8" />
             {user.firstName}
           </Link>
           <Link to="/"
             onClick={userLogout}
             className="flex gap-1 items-center font-bold text-black hover:underline"
           >
-            <ArrowRightOnRectangleIcon className="w-4 h-4" />
-            Sign Out
-          </Link>
+            <ArrowRightOnRectangleIcon className="w-4 h-4 md:w-8 md:h-8" />
+            <p className="md:text-xl">Sign Out</p>
+            </Link>
         </div>
       ) : (
         <Link
           to="/sign-in"
           className="flex gap-1 items-center mr-2 font-bold text-black hover:underline"
         >
-          <UserCircleIcon className="w-4 h-4" />
-          Sign In
+          <UserCircleIcon className="w-4 h-4 md:w-8 md:h-8" />
+          <p className="md:text-xl">Sign In</p>
         </Link>
       )}
     </header>
